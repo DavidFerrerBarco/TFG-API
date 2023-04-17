@@ -10,6 +10,11 @@ async function getOne(id)
     return await messageSchema.findById({_id: id});
 };
 
+async function getConversation(sender, receiver)
+{
+    return await messageSchema.find({sender: [sender, receiver], receiver: [sender, receiver]});
+};
+
 async function createOne(message)
 {
     return await message.save();
@@ -30,6 +35,7 @@ async function deleteOne(id)
 module.exports = {
     getAll,
     getOne,
+    getConversation,
     createOne,
     updateOne,
     deleteOne

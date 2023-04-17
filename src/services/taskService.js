@@ -10,6 +10,11 @@ async function getOne(id)
     return await taskSchema.findById({_id: id});
 };
 
+async function getTasksFromEmployee(employee)
+{
+    return await taskSchema.find({employee: employee});
+};
+
 async function createOne(task)
 {
     return await task.save();
@@ -30,6 +35,7 @@ async function deleteOne(id)
 module.exports = {
     getAll,
     getOne,
+    getTasksFromEmployee,
     createOne,
     updateOne,
     deleteOne
