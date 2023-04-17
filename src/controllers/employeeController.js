@@ -34,8 +34,48 @@ async function getEmployeesByCompany(req, res)
         .catch(() => send.response404(res))
 };
 
+async function createEmployee(req, res)
+{
+    let employee
+    try
+    {
+        employee = employeeSchema(req.body);
+    }
+    catch(error)
+    {
+        send.response500(res, error);
+    }
+
+    await employeeService.createOne(employee)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
+};
+
+async function updateEmployee(req, res)
+{
+    const { id } = req.params;
+    const { body } = req;
+
+    await employeeService.updateOne(id, body)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
+};
+
+async function deleteEmployee(req, res)
+{
+    const { id } = req.params;
+
+    await employeeService.deleteOne(id)
+        .then((data) => send.response200(res, data))
+        .catch(() => send.response404(res));
+};
+
+
 module.exports = {
     getEmployees,
     getOneEmployee,
     getEmployeesByCompany,
+    createEmployee,
+    updateEmployee,
+    deleteEmployee
 };

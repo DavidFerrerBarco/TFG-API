@@ -1,6 +1,5 @@
 const companySchema = require('../models/company');
 
-
 async function getAll()
 {
     return await companySchema.find();
