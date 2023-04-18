@@ -1,5 +1,6 @@
 const requestSchema = require('../models/request');
 const send = require('../utils/response');
+const moment = require('moment');
 const requestService = require('../services/requestService');
 
 async function getRequests(req, res)
@@ -23,10 +24,11 @@ async function createRequest(req, res)
     try
     {
         request = requestSchema(req.body);
+        request.date = moment().format('DD/MM/YYYY-HH:mm:ss').toString();
     }
     catch(error)
     {
-        send.response500(res, error);
+        return send.response500(res, error);
     }
 
     await requestService.createOne(request)
@@ -38,6 +40,8 @@ async function updateRequest(req, res)
 {
     const { id } = req.params;
     const { body } = req;
+
+    body.date = moment().format('DD/MM/YYYY-HH:mm:ss').toString();
 
     await requestService.updateOne(id, body)
         .then((data) => send.response200(res, data))

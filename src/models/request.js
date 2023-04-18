@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const requestSchema = mongoose.Schema({
     date:{
         type: String,
-        required: true
+        required: false
     },
     title: {
         type: String,

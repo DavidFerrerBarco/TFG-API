@@ -33,7 +33,7 @@ async function createAnnouncement(req, res)
     }
     catch(error)
     {
-        send.response500(res, error);
+        return send.response500(res, error);
     }
     
     await announcementService.createOne(announcement)

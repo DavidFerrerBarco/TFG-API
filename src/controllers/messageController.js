@@ -26,10 +26,10 @@ async function getConversation(req, res)
     const employeeSender = await employeeService.getOne(sender);
     const employeeReceiver = await employeeService.getOne(receiver);
 
-    const emailSender = employeeSender.email;
-    const emailReceiver = employeeReceiver.email;
+    const senderDNI = employeeSender.DNI;
+    const receiverDNI = employeeReceiver.DNI;
 
-    await messageService.getConversation(emailSender, emailReceiver)
+    await messageService.getConversation(senderDNI, receiverDNI)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
 };

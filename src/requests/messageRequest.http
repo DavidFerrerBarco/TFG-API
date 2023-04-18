@@ -12,18 +12,18 @@ POST http://localhost:3000/api/message/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "sender": "guillermojesúsdelasierra@employeediary.net",
-    "receiver": "davidferrerbarco@employeediary.net",
+    "sender": "49748069N",
+    "receiver": "49748795W",
     "content": "comemos?"
 }
 
 ###
-PUT http://localhost:3000/api/message/643e9fe26f6f409a8a272b23 HTTP/1.1
+PUT http://localhost:3000/api/message/643ea7283bb7935165786a9f HTTP/1.1
 Content-Type: application/json
 
 {
-    "content": "nope"
+    "content": "quien eres'"
 }
 
 ###
-DELETE http://localhost:3000/api/message/643e9fe26f6f409a8a272b23 HTTP/1.1
+DELETE http://localhost:3000/api/message/643ea00d6f6f409a8a272b2b HTTP/1.1

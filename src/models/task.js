@@ -11,7 +11,7 @@ const taskSchema = mongoose.Schema({
     },
     date: {
         type: String,
-        required: true
+        required: false
     },
     employee: {
         type: String,
