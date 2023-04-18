@@ -22,7 +22,7 @@ async function createOne(schedule)
 async function updateOne(id, schedule)
 {
     if(await scheduleSchema.findOne({_id: id}) == null) throw new Error()
-    return await scheduleSchema.findByIdAndUpdate({_id: id});
+    return await scheduleSchema.findByIdAndUpdate({_id: id}, schedule);
 };
 
 async function deleteOne(id)

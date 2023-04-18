@@ -1,5 +1,6 @@
 const taskSchema = require('../models/task');
 const send = require('../utils/response');
+const moment = require('moment');
 const taskService = require('../services/taskService');
 
 async function getTasks(req, res)
@@ -33,6 +34,7 @@ async function createTask(req, res)
     try
     {
         task = taskSchema(req.body);
+        task.date = moment().format('DD/MM/YYYY-HH:mm:ss').toString();
     }
     catch(error)
     {
@@ -48,6 +50,8 @@ async function updateTask(req, res)
 {
     const { id } = req.params;
     const { body } = req;
+
+    body.date = moment().format('DD/MM/YYYY-HH:mm:ss').toString();
 
     await taskService.updateOne(id, body)
         .then((data) => send.response200(res, data))

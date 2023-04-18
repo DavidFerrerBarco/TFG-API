@@ -12,7 +12,7 @@ async function getOne(id)
 
 async function getTasksFromEmployee(employee)
 {
-    return await taskSchema.find({employee: employee});
+    return await taskSchema.findOne({employee: employee});
 };
 
 async function createOne(task)

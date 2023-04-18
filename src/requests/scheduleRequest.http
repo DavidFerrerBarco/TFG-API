@@ -1,0 +1,27 @@
+###
+GET http://localhost:3000/api/schedule HTTP/1.1
+
+###
+GET http://localhost:3000/api/schedule/643eac19ffa0bb02fe183993 HTTP/1.1
+
+###
+POST http://localhost:3000/api/schedule/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "employee": "49748069N",
+    "day": "18/04/2023",
+    "hours": "08:00-17:00",
+    "hoursCount": 9
+}
+
+###
+PUT http://localhost:3000/api/schedule/643eac19ffa0bb02fe183993 HTTP/1.1
+Content-Type: application/json
+
+{
+    "day": "19/04/2023"
+}
+
+###
+DELETE http://localhost:3000/api/schedule/643eac19ffa0bb02fe183993 HTTP/1.1
