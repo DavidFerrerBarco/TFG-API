@@ -22,13 +22,13 @@ function response201(response, data)
 }
 
 //BAD REQUEST
-function response400(response)
+function response400(response, name)
 {
     response.status(400).json({
         status: 'error',
         data: [{
             id: '400',
-            name: 'Bad request'
+            name: name
         }],
     });
 }

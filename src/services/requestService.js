@@ -18,13 +18,13 @@ async function createOne(request)
 async function updateOne(id, request)
 {
     if(await requestSchema.findOne({_id: id}) == null) throw new Error()
-    await requestSchema.findByIdAndUpdate({_id: id}, request);
+    return await requestSchema.findByIdAndUpdate({_id: id}, request);
 };
 
 async function deleteOne(id)
 {
     if(await requestSchema.findOne({_id: id}) == null) throw new Error()
-    await requestSchema.findOneAndDelete({_id: id});
+    return await requestSchema.findOneAndDelete({_id: id});
 };
 
 async function deleteAllByEmployee(employee)

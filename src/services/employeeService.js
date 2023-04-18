@@ -8,15 +8,25 @@ async function getAll()
     return await employeeSchema.find();
 };
 
-async function getOne()
+async function getOne(id)
 {
     return await employeeSchema.findById({_id: id});
 };
 
 async function getEmployeesByCompany(name)
 {
-    return await employeeSchema.find({company: name});
+    return await employeeSchema.findOne({company: name});
 }
+
+async function getEmployeeByDNI(DNI)
+{
+    return await employeeSchema.findOne({DNI: DNI});
+};
+
+async function getEmployeeByEmail(email)
+{
+    return await employeeSchema.findOne({email: email});
+};
 
 async function createOne(employee)
 {
@@ -26,13 +36,13 @@ async function createOne(employee)
 async function updateOne(id, employee)
 {
     if(await employeeSchema.findOne({_id: id}) == null) throw new Error()
-    await employeeSchema.findByIdAndUpdate({_id: id}, employee)
+    return await employeeSchema.findByIdAndUpdate({_id: id}, employee)
 };
 
 async function deleteOne(id)
 {
     if(await employeeSchema.findOne({_id: id}) == null) throw new Error()
-    await employeeSchema.findByIdAndDelete({_id: id});
+    return await employeeSchema.findByIdAndDelete({_id: id});
 };
 
 async function deleteAllByCompany(company)
@@ -53,6 +63,8 @@ module.exports = {
     getAll,
     getOne,
     getEmployeesByCompany,
+    getEmployeeByDNI,
+    getEmployeeByEmail,
     createOne,
     updateOne,
     deleteOne,

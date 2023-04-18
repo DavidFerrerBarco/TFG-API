@@ -23,13 +23,13 @@ async function createOne(task)
 async function updateOne(id, task)
 {
     if(await taskSchema.findOne({_id: id}) == null) throw new Error()
-    await taskSchema.findByIdAndUpdate({_id: id}, task);
+    return await taskSchema.findByIdAndUpdate({_id: id}, task);
 };
 
 async function deleteOne(id)
 {
     if(await taskSchema.findOne({_id: id}) == null) throw new Error()
-    await taskSchema.findByIdAndDelete({_id: id});
+    return await taskSchema.findByIdAndDelete({_id: id});
 };
 
 async function deleteAllByEmployee(employee)

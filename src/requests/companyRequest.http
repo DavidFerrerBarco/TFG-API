@@ -10,7 +10,7 @@ POST  http://localhost:3000/api/company HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Employee Diay",
+    "name": "Employee Diary",
     "address": "Calle Sella nº6",
     "contractTypes": [40, 30, 20]
 }
@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/company/643e4ec62da36ccfd1eda40f HTTP/1.1
+DELETE http://localhost:3000/api/company/643c62d7c4db6ebe214ee96e HTTP/1.1

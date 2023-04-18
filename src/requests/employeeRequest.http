@@ -1,0 +1,33 @@
+//EMPLOYEE
+###
+GET http://localhost:3000/api/employee HTTP/1.1
+
+###
+GET http://localhost:3000/api/employee/ HTTP/1.1
+
+###
+GET http://localhost:3000/api/employee/company/643c62d7c4db6ebe214ee96e HTTP/1.1
+
+###
+POST http://localhost:3000/api/employee/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "David Ferrer Barco",
+    "DNI": "49748069N",
+    "password": "12345",
+    "company": "Employee Diary",
+    "contract": 40,
+    "image": "./default.jpg"
+}
+
+###
+PUT http://localhost:3000/api/employee/??? HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "a"
+}
+
+###
+DELETE http://localhost:3000/api/employee/643e9c67886de416cdea6d78 HTTP/1.1

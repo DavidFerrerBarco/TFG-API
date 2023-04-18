@@ -23,13 +23,13 @@ async function createOne(message)
 async function updateOne(id, message)
 {
     if(await messageSchema.findOne({_id: id}) == null) throw new Error()
-    await messageSchema.findByIdAndUpdate({_id: id}, message);
+    return await messageSchema.findByIdAndUpdate({_id: id}, message);
 };
 
 async function deleteOne(id)
 {
-    if(await messageSchema.findOne({_id: id} == null)) throw new Error()
-    await messageSchema.findByIdAndDelete({_id: id});
+    if(await messageSchema.findOne({_id: id}) == null) throw new Error()
+    return await messageSchema.findByIdAndDelete({_id: id});
 };
 
 module.exports = {

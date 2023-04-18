@@ -22,13 +22,13 @@ async function createOne(schedule)
 async function updateOne(id, schedule)
 {
     if(await scheduleSchema.findOne({_id: id}) == null) throw new Error()
-    await scheduleSchema.findByIdAndUpdate({_id: id});
+    return await scheduleSchema.findByIdAndUpdate({_id: id});
 };
 
 async function deleteOne(id)
 {
     if(await scheduleSchema.findOne({_id: id}) == null) throw new Error()
-    await scheduleSchema.findByIdAndDelete({_id: id});
+    return await scheduleSchema.findByIdAndDelete({_id: id});
 };
 
 async function deleteAllByEmployee(employee)

@@ -9,11 +9,11 @@ async function existingCompany(req, res, next)
 
        return await companyService.getCompanyByName(name) == null
             ? next()
-            : send.response400(res);
+            : send.response400(res, "La empresa ya existe");
     }
     catch(error)
     {
-        send.response500(res, error)
+        return send.response500(res, error)
     }
     
 };

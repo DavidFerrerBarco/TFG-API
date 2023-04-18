@@ -2,6 +2,7 @@ const employeeSchema = require('../models/employee.js');
 const send = require('../utils/response');
 const employeeService = require('../services/employeeService');
 const companyService = require('../services/companyService.js');
+const bcrypt = require('bcrypt');
 
 async function getEmployees(req, res)
 {
@@ -40,10 +41,12 @@ async function createEmployee(req, res)
     try
     {
         employee = employeeSchema(req.body);
+        employee.password = bcrypt.hashSync(employee.password, Number(process.env.SALT));
+        employee.email = employee.name.replace( /\s/g, '').toLowerCase() + "@" + employee.company.replace( /\s/g, '').toLowerCase() + ".net";
     }
     catch(error)
     {
-        send.response500(res, error);
+        return send.response500(res, error);
     }
 
     await employeeService.createOne(employee)
@@ -55,6 +58,9 @@ async function updateEmployee(req, res)
 {
     const { id } = req.params;
     const { body } = req;
+
+    if(body.password)
+        body.password = bcrypt.hashSync(body.password, process.env.SALT);
 
     await employeeService.updateOne(id, body)
         .then((data) => send.response200(res, data))

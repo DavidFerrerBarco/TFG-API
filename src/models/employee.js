@@ -11,7 +11,7 @@ const employeeSchema = mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     password: {
         type: String,
@@ -27,11 +27,13 @@ const employeeSchema = mongoose.Schema({
     },
     admin: {
         type: Boolean,
-        required: true
+        required: false,
+        default: false
     },
     image: {
         type: String,
-        required: true
+        required: false,
+        default: './default.jpg'
     }
 });
 
