@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/company/643c62d7c4db6ebe214ee96e HTTP/1.1
+DELETE http://localhost:3000/api/company/643e4f1d5d6d6ffbee13e6bb HTTP/1.1
