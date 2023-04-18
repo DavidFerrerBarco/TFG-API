@@ -21,6 +21,18 @@ function response201(response, data)
     });
 }
 
+//BAD REQUEST
+function response400(response)
+{
+    response.status(400).json({
+        status: 'error',
+        data: [{
+            id: '400',
+            name: 'Bad request'
+        }],
+    });
+}
+
 //NOT FOUND
 function response404(response)
 {
@@ -48,6 +60,7 @@ function response500(response, data)
 module.exports = {
     response200,
     response201,
+    response400,
     response404,
     response500
 }

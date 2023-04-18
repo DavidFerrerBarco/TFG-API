@@ -27,10 +27,16 @@ async function deleteOne(id)
     await requestSchema.findOneAndDelete({_id: id});
 };
 
+async function deleteAllByEmployee(employee)
+{
+    await requestSchema.deleteMany({employee: employee});
+};
+
 module.exports = {
     getAll,
     getOne,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    deleteAllByEmployee
 }

@@ -18,13 +18,18 @@ async function createOne(announcement)
 async function updateOne(id, announcement)
 {
     if(await announcementSchema.findOne({_id: id}) == null) throw new Error()
-    await announcementSchema.findByIdAndUpdate({_id: id}, announcement);
+    return await announcementSchema.findByIdAndUpdate({_id: id}, announcement);
 };
 
 async function deleteOne(id)
 {
     if(await announcementSchema.findOne({_id: id}) == null) throw new Error()
-    await announcementSchema.findByIdAndDelete({_id: id});
+    return await announcementSchema.findByIdAndDelete({_id: id});
+};
+
+async function deleteAllByCompany(company)
+{
+    await announcementSchema.deleteMany({company: company});
 };
 
 module.exports = {
@@ -32,5 +37,6 @@ module.exports = {
     getOne,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    deleteAllByCompany
 }

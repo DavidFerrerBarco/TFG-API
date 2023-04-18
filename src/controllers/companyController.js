@@ -51,7 +51,7 @@ async function deleteCompany(req, res)
     await companyService.deleteOne(id)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
-}
+};
 
 module.exports = {
     getCompanies,

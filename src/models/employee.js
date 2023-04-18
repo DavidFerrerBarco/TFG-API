@@ -5,10 +5,6 @@ const employeeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    surname: {
-        type: String,
-        required: true
-    },
     DNI: {
         type: String,
         required: true

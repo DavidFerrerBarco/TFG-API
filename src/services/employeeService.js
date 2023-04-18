@@ -1,4 +1,7 @@
 const employeeSchema = require('../models/employee');
+const taskService = require('./taskService');
+const scheduleService = require('./scheduleService');
+const requestService = require('./requestService');
 
 async function getAll()
 {
@@ -32,11 +35,26 @@ async function deleteOne(id)
     await employeeSchema.findByIdAndDelete({_id: id});
 };
 
+async function deleteAllByCompany(company)
+{
+
+    const employees = await employeeSchema.find({company: company})
+
+    employees.forEach(async employee => {
+        const { name } = employee
+        await taskService.deleteAllByEmployee(name);
+        await scheduleService.deleteAllByEmployee(name);
+        await requestService.deleteAllByEmployee(name);
+    })
+    await employeeSchema.deleteMany({company: company});
+};
+
 module.exports = {
     getAll,
     getOne,
     getEmployeesByCompany,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    deleteAllByCompany
 }

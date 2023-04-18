@@ -31,11 +31,17 @@ async function deleteOne(id)
     await scheduleSchema.findByIdAndDelete({_id: id});
 };
 
+async function deleteAllByEmployee(employee)
+{
+    await scheduleSchema.deleteMany({employee: employee});
+};
+
 module.exports = {
     getAll,
     getOne,
     getScheduleFromEmployee,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    deleteAllByEmployee
 }

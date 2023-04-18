@@ -12,6 +12,10 @@ const requestSchema = mongoose.Schema({
     content: {
         type: String,
         required: true
+    },
+    employee: {
+        type: String,
+        required: true
     }
 })
 

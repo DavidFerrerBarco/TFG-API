@@ -32,11 +32,16 @@ async function deleteOne(id)
     await taskSchema.findByIdAndDelete({_id: id});
 };
 
+async function deleteAllByEmployee(employee)
+{
+    await taskSchema.deleteMany({employee: employee});
+};
 module.exports = {
     getAll,
     getOne,
     getTasksFromEmployee,
     createOne,
     updateOne,
-    deleteOne
+    deleteOne,
+    deleteAllByEmployee
 }

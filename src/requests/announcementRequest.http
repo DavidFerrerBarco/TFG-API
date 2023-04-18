@@ -1,0 +1,29 @@
+//ANNOUNCEMENT
+###
+GET http://localhost:3000/api/announcement HTTP/1.1
+
+###
+GET http://localhost:3000/api/announcement/643e459be657315a6f737a98 HTTP/1.1
+
+###
+POST http://localhost:3000/api/announcement HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Nueva noticia",
+    "content": "Esto es una prueba",
+    "company": "Employee Diary"
+}
+
+###
+//OBLIGATORIO PONER COMPANY POR EL MIDDLEWARE Y COMPROBAMOS SI CAMBIA O NO
+PUT http://localhost:3000/api/announcement/643e5341b68bb5a4a887054a HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Cambio el título",
+    "company": "Employee Diary"
+}
+
+###
+DELETE http://localhost:3000/api/announcement/643e459be657315a6f737a98 HTTP/1.1

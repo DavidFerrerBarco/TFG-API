@@ -1,0 +1,28 @@
+//COMPANY
+###
+GET  http://localhost:3000/api/company HTTP/1.1
+
+###
+GET  http://localhost:3000/api/company/643c4e8aff966a9f7b0ab68a HTTP/1.1
+
+###
+POST  http://localhost:3000/api/company HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Employee Diay",
+    "address": "Calle Sella nº6",
+    "contractTypes": [40, 30, 20]
+}
+
+###
+PUT http://localhost:3000/api/company/643e4f1d5d6d6ffbee13e6bb HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Employee",
+    "contractTypes": [40, 30]
+}
+
+###
+DELETE http://localhost:3000/api/company/643e4ec62da36ccfd1eda40f HTTP/1.1
