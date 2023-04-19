@@ -2,6 +2,7 @@ const taskSchema = require('../models/task');
 const send = require('../utils/response');
 const moment = require('moment');
 const taskService = require('../services/taskService');
+const employeeService = require('../services/employeeService');
 
 async function getTasks(req, res)
 {
@@ -22,8 +23,10 @@ async function getOneTask(req, res)
 async function getTasksFromEmployee(req, res)
 {
     const { employee } = req.params;
+    const dniEmployee = await employeeService.getOne(employee)
+    const { DNI } = dniEmployee
 
-    await taskService.getTasksFromEmployee(employee)
+    await taskService.getTasksFromEmployee(DNI)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
 };

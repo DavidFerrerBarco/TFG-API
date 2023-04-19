@@ -1,6 +1,7 @@
 const scheduleSchema = require('../models/schedule');
 const send = require('../utils/response');
 const scheduleService = require('../services/scheduleService');
+const employeeService = require('../services/employeeService');
 
 async function getSchedules(req, res)
 {
@@ -20,7 +21,9 @@ async function getOneSchedule(req, res)
 async function getScheduleFromEmployee(req, res)
 {
     const { employee } = req.params;
-    await scheduleService.getScheduleFromEmployee(employee)
+    const dniEmployee = await employeeService.getOne(employee)
+    const { DNI } = dniEmployee
+    await scheduleService.getScheduleFromEmployee(DNI)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
 };

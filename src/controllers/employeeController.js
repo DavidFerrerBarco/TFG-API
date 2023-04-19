@@ -3,6 +3,7 @@ const send = require('../utils/response');
 const employeeService = require('../services/employeeService');
 const companyService = require('../services/companyService.js');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 async function getEmployees(req, res)
 {
@@ -54,6 +55,16 @@ async function createEmployee(req, res)
         .catch((error) => send.response500(res, error));
 };
 
+async function loginEmployee(req, res)
+{
+    const { DNI } = req.body;
+
+    const token = jwt.sign({ user: DNI }, process.env.JWT_SECRET, { expiresIn: process.env.EXPIRES_IN});
+
+    return send.response200(res, token);
+
+};
+
 async function updateEmployee(req, res)
 {
     const { id } = req.params;
@@ -82,6 +93,7 @@ module.exports = {
     getOneEmployee,
     getEmployeesByCompany,
     createEmployee,
+    loginEmployee,
     updateEmployee,
     deleteEmployee
 };

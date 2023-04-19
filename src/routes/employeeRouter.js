@@ -12,6 +12,8 @@ router.post('/',
     employeeMiddleware.validDNI, 
     employeeController.createEmployee
 );
+
+router.post('/login', employeeMiddleware.loginValidUser, employeeController.loginEmployee);
 router.put('/:id', 
     employeeMiddleware.validCompany,
     employeeController.updateEmployee

@@ -5,6 +5,10 @@ GET http://localhost:3000/api/schedule HTTP/1.1
 GET http://localhost:3000/api/schedule/643eac19ffa0bb02fe183993 HTTP/1.1
 
 ###
+GET http://localhost:3000/api/schedule/employee/643f8aafdca76a335933ac1f HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwNjlOIiwiaWF0IjoxNjgxODg4MDgzLCJleHAiOjE2ODE4ODgxNDN9.qWDu5Ysz97wZHoIgTai4aol3UFqnYw7v_7k0leuRQUY
+
+###
 POST http://localhost:3000/api/schedule/ HTTP/1.1
 Content-Type: application/json
 

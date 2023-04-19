@@ -1,6 +1,7 @@
 const send = require('../utils/response');
 const companyService = require('../services/companyService');
 const employeeService = require('../services/employeeService');
+const bcrypt = require('bcrypt');
 
 async function existDNI(req, res, next)
 {
@@ -20,6 +21,30 @@ async function existDNI(req, res, next)
         return send.response500(res, error);
     }
 }
+
+async function loginValidUser(req, res, next)
+{
+    try
+    {
+        const { DNI, password } = req.body;
+
+        const employeeExist = await employeeService.getEmployeeByDNI(DNI)
+        
+        if(employeeExist == null)
+            return send.response400(res, "El empleado no existe");
+
+        const passwordHashed = employeeExist.password;
+        
+        if(!bcrypt.compareSync(password,passwordHashed))
+            return send.response400(res, "Contraseña incorrecta");
+
+        next();
+    }
+    catch(error)
+    {
+        return send.response500(res, error);
+    }
+};
 
 async function validCompany(req, res, next)
 {
@@ -74,6 +99,7 @@ async function validDNI(req, res, next)
 
 module.exports = {
     existDNI,
+    loginValidUser,
     validCompany,
     validDNI
 }

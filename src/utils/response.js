@@ -33,6 +33,18 @@ function response400(response, name)
     });
 }
 
+//NOT AUTHORIZATION
+function response401(response)
+{
+    response.status(401).json({
+        status: 'error',
+        data: [{
+            id: '401',
+            data: 'Not Authorization'
+        }],
+    });
+}
+
 //NOT FOUND
 function response404(response)
 {
@@ -61,6 +73,7 @@ module.exports = {
     response200,
     response201,
     response400,
+    response401,
     response404,
     response500
 }
