@@ -1,0 +1,27 @@
+###
+GET http://localhost:3000/api/task HTTP/1.1
+
+###
+GET http://localhost:3000/api/task/643eae92959bb74b71c52b6a HTTP/1.1
+
+###
+POST http://localhost:3000/api/task HTTP/1.1
+Content-Type: application/json
+
+{
+    "employee": "49748069N",
+    "title": "titulo tarea",
+    "content": "que es esto",
+    "status": "Pendiente"
+}
+
+###
+PUT http://localhost:3000/api/task/643eae92959bb74b71c52b6a HTTP/1.1
+Content-Type: application/json
+
+{
+    "status": "Finalizada"
+}
+
+###
+DELETE http://localhost:3000/api/task/643eaf0f959bb74b71c52b75 HTTP/1.1

@@ -1,0 +1,26 @@
+//NEWS
+###
+GET http://localhost:3000/api/news HTTP/1.1
+
+###
+GET http://localhost:3000/api/news/645fa989f6c9d08c785dd795 HTTP/1.1
+
+###
+POST http://localhost:3000/api/news HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Tercera noticia",
+    "content": "Quis non minim dolore pariatur proident aliqua aliquip consectetur aliqua proident mollit velit amet do."
+}
+
+###
+PUT http://localhost:3000/api/news/645fa989f6c9d08c785dd795 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Primera nueva noticia"
+}
+
+###
+DELETE http://localhost:3000/api/news/645fa989f6c9d08c785dd795 HTTP/1.1

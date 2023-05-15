@@ -26,7 +26,7 @@ async function createCompany(req, res)
     }
     catch(error)
     {
-        send.response500(res, error);
+        return send.response500(res, error);
     }
 
     await companyService.createOne(company)
@@ -51,7 +51,7 @@ async function deleteCompany(req, res)
     await companyService.deleteOne(id)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
-}
+};
 
 module.exports = {
     getCompanies,
