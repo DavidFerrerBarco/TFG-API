@@ -10,6 +10,11 @@ async function getOne(id)
     return await announcementSchema.findById({_id: id});
 };
 
+async function getByCompany(company)
+{
+    return await announcementSchema.where({company: company});
+};
+
 async function createOne(announcement)
 {
     return await announcement.save();
@@ -35,6 +40,7 @@ async function deleteAllByCompany(company)
 module.exports = {
     getAll,
     getOne,
+    getByCompany,
     createOne,
     updateOne,
     deleteOne,

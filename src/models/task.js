@@ -13,6 +13,10 @@ const taskSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    day: {
+        type: String,
+        required: true
+    },
     employee: {
         type: String,
         required: true

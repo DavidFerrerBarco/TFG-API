@@ -6,6 +6,10 @@ GET http://localhost:3000/api/announcement HTTP/1.1
 GET http://localhost:3000/api/announcement/643e459be657315a6f737a98 HTTP/1.1
 
 ###
+GET http://localhost:3000/api/announcement/company/Employee-Diary HTTP/1.1
+Authorization: Bearear a.asd.as
+
+###
 POST http://localhost:3000/api/announcement HTTP/1.1
 Content-Type: application/json
 

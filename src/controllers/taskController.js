@@ -24,11 +24,15 @@ async function getTasksFromEmployee(req, res)
 {
     const { employee } = req.params;
     const dniEmployee = await employeeService.getOne(employee)
-    const { DNI } = dniEmployee
+    if(dniEmployee == null) send.response400(res, "No existe el id");
+    else
+    {
+        const { DNI } = dniEmployee
 
-    await taskService.getTasksFromEmployee(DNI)
-        .then((data) => send.response200(res, data))
-        .catch(() => send.response404(res));
+        await taskService.getTasksFromEmployee(DNI)
+            .then((data) => send.response200(res, data))
+            .catch(() => send.response404(res));
+    }
 };
 
 async function createTask(req, res)

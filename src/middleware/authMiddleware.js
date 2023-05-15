@@ -19,7 +19,7 @@ async function validateToken(req, res, next)
     } 
     catch (error) 
     {
-        return send.response500(res, error);
+        return send.response401(res, error);
     }
 };
 
