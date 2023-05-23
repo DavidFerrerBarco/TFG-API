@@ -5,7 +5,7 @@ const employeeMiddleware = require('../middleware/employeeMiddleware');
 
 router.get('/', employeeController.getEmployees);
 router.get('/:id', employeeController.getOneEmployee);
-router.get('/company/:id', employeeController.getEmployeesByCompany);
+router.get('/company/:company', employeeController.getEmployeesByCompany);
 router.post('/', 
     employeeMiddleware.existDNI, 
     employeeMiddleware.validCompany, 

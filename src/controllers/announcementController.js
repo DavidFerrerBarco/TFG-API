@@ -27,7 +27,6 @@ async function getAnnouncementsByCompany(req, res)
 {
     let { company } = req.params;
     company = company.replaceAll('-', ' ');
-    console.log(company)
     await announcementService.getByCompany(company)
         .then((data) => send.response200(res, data))
         .catch((error) => send.response500(res, error));

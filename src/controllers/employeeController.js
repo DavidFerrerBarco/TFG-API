@@ -22,18 +22,22 @@ async function getOneEmployee(req, res)
 
 async function getEmployeesByCompany(req, res)
 {
-    const { id } = req.params;
-    let name 
-    await companyService.getOne(id)
+    let { company } = req.params;
+    company = company.replaceAll('-', ' ');
+    employeeService.getEmployeesByCompany(company)
         .then((data) => {
-            name = data.name
-
-            employeeService.getEmployeesByCompany(name)
-                .then((data) => send.response200(res, data))
-                .catch((error) => send.response500(res, error));
-
+            if(data.length == 0)
+            {
+                send.response404(res);
+            }
+            else
+            {
+                send.response200(res, data);
+            }
+            
         })
-        .catch(() => send.response404(res))
+        .catch((error) => send.response500(res, error));
+
 };
 
 async function createEmployee(req, res)

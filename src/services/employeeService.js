@@ -13,9 +13,9 @@ async function getOne(id)
     return await employeeSchema.findById({_id: id});
 };
 
-async function getEmployeesByCompany(name)
+async function getEmployeesByCompany(company)
 {
-    return await employeeSchema.findOne({company: name});
+    return await employeeSchema.where({company: company}).sort({name: 1});
 }
 
 async function getEmployeeByDNI(DNI)

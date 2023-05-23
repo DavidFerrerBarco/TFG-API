@@ -5,16 +5,16 @@ GET http://localhost:3000/api/message HTTP/1.1
 GET http://localhost:3000/api/message/643e9fe26f6f409a8a272b23 HTTP/1.1
 
 ###
-GET http://localhost:3000/api/message/sender/643e9cb2199785bd9e6504a1/receiver/643e9dfc199785bd9e6504a6 HTTP/1.1
+GET http://localhost:3000/api/message/sender/643f8aafdca76a335933ac1f/receiver/646a4bbd568bd7c110c8bee0 HTTP/1.1
 
 ###
 POST http://localhost:3000/api/message/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "sender": "49748069N",
-    "receiver": "49748795W",
-    "content": "comemos?"
+    "sender": "76231428K",
+    "receiver": "49748069N",
+    "content": "Holaa"
 }
 
 ###

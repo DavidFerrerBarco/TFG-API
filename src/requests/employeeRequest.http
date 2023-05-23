@@ -6,7 +6,7 @@ GET http://localhost:3000/api/employee HTTP/1.1
 GET http://localhost:3000/api/employee/ HTTP/1.1
 
 ###
-GET http://localhost:3000/api/employee/company/643c62d7c4db6ebe214ee96e HTTP/1.1
+GET http://localhost:3000/api/employee/company/Employee-Diary HTTP/1.1
 
 ###
 POST http://localhost:3000/api/employee/ HTTP/1.1
