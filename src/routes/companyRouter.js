@@ -6,7 +6,7 @@ const companyMiddleware = require('../middleware/companyMiddleware');
 router.get('/', companyController.getCompanies);
 router.get('/:id', companyController.getOneCompany);
 router.post('/', companyMiddleware.existingCompany, companyController.createCompany);
-router.put('/:id', companyMiddleware.existingCompany, companyController.updateCompany);
+router.put('/:id', companyMiddleware.notExistingCompany, companyController.updateCompany);
 router.delete('/:id', companyController.deleteCompany);
 
 module.exports = router;
