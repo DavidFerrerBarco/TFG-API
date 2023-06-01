@@ -14,10 +14,8 @@ router.post('/',
 );
 
 router.post('/login', employeeMiddleware.loginValidUser, employeeController.loginEmployee);
-router.put('/:id', 
-    employeeMiddleware.validCompany,
-    employeeController.updateEmployee
-);
+router.post('/login/admin', employeeMiddleware.loginValidUser, employeeMiddleware.isAdmin, employeeController.loginEmployee);
+router.put('/:id', employeeController.updateEmployee);
 router.delete('/:id', employeeController.deleteEmployee);
 
 module.exports = router;

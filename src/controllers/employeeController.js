@@ -90,7 +90,7 @@ async function updateEmployee(req, res)
     const { body } = req;
 
     if(body.password)
-        body.password = bcrypt.hashSync(body.password, process.env.SALT);
+        body.password = bcrypt.hashSync(body.password, Number(process.env.SALT));
 
     await employeeService.updateOne(id, body)
         .then((data) => send.response200(res, data))

@@ -46,6 +46,26 @@ async function loginValidUser(req, res, next)
     }
 };
 
+async function isAdmin(req, res, next){
+    try
+    {
+        const { DNI } = req.body;
+
+        const employee = await employeeService.getEmployeeByDNI(DNI)
+        if(employee.admin)
+        {
+            next();
+        }
+        else
+        {
+            return send.response400(res, "No es admin");
+        }
+    }catch(error)
+    {
+        return send.response500(res, error);
+    }
+};
+
 async function validCompany(req, res, next)
 {
     try
@@ -60,7 +80,7 @@ async function validCompany(req, res, next)
         const { contractTypes } = existCompany
                 
         if(contract == null || contractTypes.indexOf(contract) == -1) 
-            return send.response400(res), "No se ha definido un contrato admisible"
+            return send.response400(res, "No se ha definido un contrato admisible")
 
         next();
     }
@@ -101,5 +121,6 @@ module.exports = {
     existDNI,
     loginValidUser,
     validCompany,
-    validDNI
+    validDNI,
+    isAdmin,
 }

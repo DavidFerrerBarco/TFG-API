@@ -30,11 +30,6 @@ const employeeSchema = mongoose.Schema({
         required: false,
         default: false
     },
-    image: {
-        type: String,
-        required: false,
-        default: './default.jpg'
-    }
 });
 
 module.exports = mongoose.model('Employee', employeeSchema);
