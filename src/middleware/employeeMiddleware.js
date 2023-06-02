@@ -117,10 +117,22 @@ async function validDNI(req, res, next)
     }
 }
 
+async function containsDNI(req, res, next){
+    const { DNI } = req.body;
+
+    if(DNI)
+    {
+        existDNI(req, res, next);
+    }else{
+        next();
+    }
+};
+
 module.exports = {
     existDNI,
     loginValidUser,
     validCompany,
     validDNI,
     isAdmin,
+    containsDNI,
 }
