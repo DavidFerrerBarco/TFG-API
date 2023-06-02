@@ -82,7 +82,6 @@ async function loginEmployee(req, res)
         "company": employee.company,
         "contract": employee.contract,
         "admin": employee.admin,
-        "image": employee.image,
         "email": employee.email,
         "__v": employee.__v,
         "token": token
