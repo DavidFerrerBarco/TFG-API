@@ -46,7 +46,13 @@ async function createEmployee(req, res)
     try
     {
         employee = employeeSchema(req.body);
-        employee.password = bcrypt.hashSync(employee.password, Number(process.env.SALT));
+        let password
+        if(employee.password)
+            password = employee.password
+        else
+            password = process.env.SECRETPASSWORD
+
+        employee.password = bcrypt.hashSync(password, Number(process.env.SALT));
         employee.email = employee.name.replace( /\s/g, '').toLowerCase() + "@" + employee.company.replace( /\s/g, '').toLowerCase() + ".net";
     }
     catch(error)
