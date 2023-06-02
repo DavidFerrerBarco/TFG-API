@@ -122,7 +122,7 @@ async function containsDNI(req, res, next){
 
     if(DNI)
     {
-        existDNI(req, res, next);
+        validDNI(req, res, next);
     }else{
         next();
     }
