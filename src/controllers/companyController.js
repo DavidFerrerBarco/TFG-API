@@ -17,6 +17,23 @@ async function getOneCompany(req, res)
         .catch(() => send.response404(res));
 };
 
+async function getOneCompanyByName(req, res){
+    let { name } = req.params;
+    name = name.replaceAll('-', ' ');
+
+    await companyService.getCompanyByName(name)
+        .then((data) => {
+            if(data == null){
+                send.response404(res);
+            }
+            else{
+                send.response200(res, data)
+            }
+            
+        })
+        .catch(() => send.response404(res));
+};
+
 async function createCompany(req, res)
 {
     let company
@@ -56,6 +73,7 @@ async function deleteCompany(req, res)
 module.exports = {
     getCompanies,
     getOneCompany,
+    getOneCompanyByName,
     createCompany,
     updateCompany,
     deleteCompany
