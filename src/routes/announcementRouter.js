@@ -5,7 +5,7 @@ const announcementController = require('../controllers/announcementController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 router.get('/', announcementController.getAnnouncements);
-router.get('/:id', announcementController.getOneAnnouncement);+
+router.get('/:id', announcementController.getOneAnnouncement);
 router.get('/company/:company', authMiddleware.validateToken ,announcementController.getAnnouncementsByCompany);
 router.post('/', announcementMiddleware.existingCompany, announcementController.createAnnouncement);
 router.put('/:id', announcementMiddleware.existingCompany, announcementController.updateAnnouncement);

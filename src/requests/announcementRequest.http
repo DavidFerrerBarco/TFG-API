@@ -7,7 +7,7 @@ GET http://localhost:3000/api/announcement/643e459be657315a6f737a98 HTTP/1.1
 
 ###
 GET http://localhost:3000/api/announcement/company/Employee-Diary HTTP/1.1
-Authorization: Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwNjlOIiwiaWF0IjoxNjg0NDM2OTk3LCJleHAiOjE2ODQ1MjMzOTd9.uimFVuzOAP1--cBzxFU90FDOKViYJDywNqGPriu4K-0
+Authorization: Bearear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwNjlOIiwiaWF0IjoxNjg1NzkwODY0LCJleHAiOjE2ODU4NzcyNjR9.8bo_L01MGh0Pgig2jJgxHStkbHtjgjnoeVoy_iirFrY
 
 ###
 POST http://localhost:3000/api/announcement HTTP/1.1

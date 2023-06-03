@@ -14,6 +14,12 @@ async function getScheduleFromEmployee(employee)
 {
     return await scheduleSchema.find({employee: employee});
 };
+
+async function getScheduleFromEmploeeList(listEmployees)
+{
+    return await scheduleSchema.find({employee: {$in : listEmployees}});
+};
+
 async function createOne(schedule)
 {
     return await schedule.save();
@@ -40,6 +46,7 @@ module.exports = {
     getAll,
     getOne,
     getScheduleFromEmployee,
+    getScheduleFromEmploeeList,
     createOne,
     updateOne,
     deleteOne,

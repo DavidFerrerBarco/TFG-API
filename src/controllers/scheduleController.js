@@ -28,6 +28,29 @@ async function getScheduleFromEmployee(req, res)
         .catch(() => send.response404(res));
 };
 
+async function getScheduleFromCompany(req, res){
+    let { company } = req.params;
+    company = company.replaceAll('-', ' ');
+
+    let listEmployees;
+
+    await employeeService.getEmployeesByCompany(company)
+        .then((data) => {
+            listEmployees = data
+        })
+        .catch((error) => send.response500(res, error));
+    
+    let dniList = [];
+
+    listEmployees.forEach(employee => {
+        dniList.push(employee.DNI);
+    });
+
+    await scheduleService.getScheduleFromEmploeeList(dniList)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
+};
+
 async function createSchedule(req, res)
 {
     let schedule
@@ -68,6 +91,7 @@ module.exports = {
     getSchedules,
     getOneSchedule,
     getScheduleFromEmployee,
+    getScheduleFromCompany,
     createSchedule,
     updateSchedule,
     deleteSchedule
