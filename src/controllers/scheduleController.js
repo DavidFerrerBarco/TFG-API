@@ -46,7 +46,17 @@ async function getScheduleFromCompany(req, res){
         dniList.push(employee.DNI);
     });
 
-    await scheduleService.getScheduleFromEmploeeList(dniList)
+    await scheduleService.getScheduleFromEmployeeList(dniList)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
+};
+
+async function getSchedulesFromEmployeeByDayList(req, res)
+{
+    const { employee } = req.params;
+    const { daylist } = req.body;
+
+    await scheduleService.getSchedulesFromEmployeeByDayList(daylist, employee)
         .then((data) => send.response200(res, data))
         .catch((error) => send.response500(res, error));
 };
@@ -63,8 +73,10 @@ async function createSchedule(req, res)
         send.response500(res, error);
     }
 
+    
+
     await scheduleService.createOne(schedule)
-        .then((data) => send.response200(res, data))
+        .then((data) => send.response201(res, data))
         .catch((error) => send.response500(res, error));
 };
 
@@ -92,6 +104,7 @@ module.exports = {
     getOneSchedule,
     getScheduleFromEmployee,
     getScheduleFromCompany,
+    getSchedulesFromEmployeeByDayList,
     createSchedule,
     updateSchedule,
     deleteSchedule

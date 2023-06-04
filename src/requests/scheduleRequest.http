@@ -12,6 +12,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwN
 GET http://localhost:3000/api/schedule/company/Employee-Diary HTTP/1.1
 
 ###
+POST http://localhost:3000/api/schedule/daylist/49748069N HTTP/1.1
+Content-Type: application/json
+
+{
+    "daylist": ["2023-06-12", "2023-06-13", "2023-06-14", "2023-06-15", "2023-06-16", "2023-06-17", "2023-06-18"]
+}
+
+###
 POST http://localhost:3000/api/schedule/ HTTP/1.1
 Content-Type: application/json
 

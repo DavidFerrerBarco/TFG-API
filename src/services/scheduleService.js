@@ -15,9 +15,19 @@ async function getScheduleFromEmployee(employee)
     return await scheduleSchema.find({employee: employee});
 };
 
-async function getScheduleFromEmploeeList(listEmployees)
+async function getScheduleFromEmployeeList(listEmployees)
 {
     return await scheduleSchema.find({employee: {$in : listEmployees}});
+};
+
+async function getScheduleFromEmployeeByDay(employee, day)
+{
+    return await scheduleSchema.find({employee: employee, day: day});
+};
+
+async function getSchedulesFromEmployeeByDayList(daylist, employee)
+{
+    return await scheduleSchema.find({employee: employee, day: {$in: daylist}});
 };
 
 async function createOne(schedule)
@@ -46,7 +56,9 @@ module.exports = {
     getAll,
     getOne,
     getScheduleFromEmployee,
-    getScheduleFromEmploeeList,
+    getScheduleFromEmployeeList,
+    getScheduleFromEmployeeByDay,
+    getSchedulesFromEmployeeByDayList,
     createOne,
     updateOne,
     deleteOne,
