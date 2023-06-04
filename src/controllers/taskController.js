@@ -35,6 +35,29 @@ async function getTasksFromEmployee(req, res)
     }
 };
 
+async function getTasksFromCompany(req, res){
+    let { company } = req.params;
+    company = company.replaceAll('-', ' ');
+
+    let listEmployees;
+
+    await employeeService.getEmployeesByCompany(company)
+        .then((data) => {
+            listEmployees = data
+        })
+        .catch((error) => send.response500(res, error));
+    
+    let dniList = [];
+
+    listEmployees.forEach(employee => {
+        dniList.push(employee.DNI);
+    });
+
+    await taskService.getTasksFromEmployeeList(dniList)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
+};
+
 async function createTask(req, res)
 {
     let task
@@ -78,6 +101,7 @@ module.exports = {
     getTasks,
     getOneTask,
     getTasksFromEmployee,
+    getTasksFromCompany,
     createTask,
     updateTask,
     deleteTask

@@ -8,13 +8,15 @@ GET http://localhost:3000/api/task/643eae92959bb74b71c52b6a HTTP/1.1
 GET http://localhost:3000/api/task/employee/643f8aafdca76a335933ac1f HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwNjlOIiwiaWF0IjoxNjg0NjgxNjY5LCJleHAiOjE2ODQ3NjgwNjl9.2IssDIX1TQ30WSDjo0zUVNU2Cwb-ItnHg294Ew4VGM0
 
+###
+GET http://localhost:3000/api/task/company/Employee-Diary HTTP/1.1
 
 ###
 POST http://localhost:3000/api/task HTTP/1.1
 Content-Type: application/json
 
 {
-    "employee": "49748069N",
+    "employee": "87793990T",
     "day": "2023-05-20",
     "title": "titulo tarea2",
     "content": "que es esto",
