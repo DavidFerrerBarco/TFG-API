@@ -72,7 +72,7 @@ async function createTask(req, res)
     }
 
     await taskService.createOne(task)
-        .then((data) => send.response200(res, data))
+        .then((data) => send.response201(res, data))
         .catch((error) => send.response500(res, error));
 };
 

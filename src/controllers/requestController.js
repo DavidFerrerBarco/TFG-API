@@ -2,6 +2,7 @@ const requestSchema = require('../models/request');
 const send = require('../utils/response');
 const moment = require('moment');
 const requestService = require('../services/requestService');
+const employeeService = require('../services/employeeService');
 
 async function getRequests(req, res)
 {
@@ -16,6 +17,29 @@ async function getOneRequest(req, res)
     await requestService.getOne(id)
         .then((data) => send.response200(res, data))
         .catch(() => send.response404(res));
+};
+
+async function getRequestsFromCompany(req, res){
+    let { company } = req.params;
+    company = company.replaceAll('-', ' ');
+
+    let listEmployees;
+
+    await employeeService.getEmployeesByCompany(company)
+        .then((data) => {
+            listEmployees = data
+        })
+        .catch((error) => send.response500(res, error));
+    
+    let dniList = [];
+
+    listEmployees.forEach(employee => {
+        dniList.push(employee.DNI);
+    });
+
+    await requestService.getRequestsFromEmployeeList(dniList)
+        .then((data) => send.response200(res, data))
+        .catch((error) => send.response500(res, error));
 };
 
 async function createRequest(req, res)
@@ -60,6 +84,7 @@ async function deleteRequest(req, res)
 module.exports = {
     getRequests,
     getOneRequest,
+    getRequestsFromCompany,
     createRequest,
     updateRequest,
     deleteRequest

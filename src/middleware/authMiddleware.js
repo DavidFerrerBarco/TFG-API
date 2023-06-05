@@ -9,8 +9,6 @@ async function validateToken(req, res, next)
     const authHeader = req.headers.authorization;
     const token = authHeader.split(" ")[1];
 
-    console.log(token)
-
     try 
     {
         jwt.verify(token, process.env.JWT_SECRET);
