@@ -48,7 +48,7 @@ async function createMessage(req, res)
     }
 
     await messageService.createOne(message)
-        .then((data) => send.response200(res, data))
+        .then((data) => send.response201(res, data))
         .catch((error) => send.response500(res, error));
 };
 

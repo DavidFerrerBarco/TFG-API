@@ -9,6 +9,9 @@ GET http://localhost:3000/api/schedule/employee/643f8aafdca76a335933ac1f HTTP/1.
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNDk3NDgwNjlOIiwiaWF0IjoxNjgxODg4MDgzLCJleHAiOjE2ODE4ODgxNDN9.qWDu5Ysz97wZHoIgTai4aol3UFqnYw7v_7k0leuRQUY
 
 ###
+GET http://localhost:3000/api/schedule/employeedni/49748069N HTTP/1.1
+
+###
 GET http://localhost:3000/api/schedule/company/Employee-Diary HTTP/1.1
 
 ###

@@ -98,7 +98,9 @@ async function updateEmployee(req, res)
         body.password = bcrypt.hashSync(body.password, Number(process.env.SALT));
     
     await employeeService.updateOne(id, body)
-        .then((data) => send.response200(res, data))
+        .then((data) => {employeeService.getOne(data.id)
+                .then((data) => send.response200(res, data))
+                .catch((error) => send.response500(res,error))})
         .catch((error) => send.response500(res, error));
 };
 

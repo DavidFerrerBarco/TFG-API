@@ -28,6 +28,13 @@ async function getScheduleFromEmployee(req, res)
         .catch(() => send.response404(res));
 };
 
+async function getScheduleEmployeeDNI(req, res)
+{
+    const { dni } = req.params;
+    await scheduleService.getScheduleFromEmployee(dni)
+        .then((data) => send.response200(res, data))
+        .catch(() => send.response404(res));
+};
 async function getScheduleFromCompany(req, res){
     let { company } = req.params;
     company = company.replaceAll('-', ' ');
@@ -113,6 +120,7 @@ module.exports = {
     getScheduleFromEmployee,
     getScheduleFromCompany,
     getSchedulesFromEmployeeByDayList,
+    getScheduleEmployeeDNI,
     createSchedule,
     updateSchedule,
     deleteSchedule

@@ -8,6 +8,7 @@ router.get('/', scheduleController.getSchedules);
 router.get('/:id', scheduleController.getOneSchedule);
 router.get('/employee/:employee', authMiddleware.validateToken, scheduleController.getScheduleFromEmployee);
 router.get('/company/:company', scheduleController.getScheduleFromCompany);
+router.get('/employeedni/:dni', scheduleController.getScheduleEmployeeDNI);
 router.post('/daylist/:employee', scheduleController.getSchedulesFromEmployeeByDayList);
 router.post('/', scheduleMiddleware.existEmployeeDNI, scheduleMiddleware.validDate, scheduleController.createSchedule);
 router.put('/:id', scheduleController.updateSchedule);
