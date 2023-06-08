@@ -8,13 +8,16 @@ GET http://localhost:3000/api/request/643ea85eb3495bf133a551a0 HTTP/1.1
 GET http://localhost:3000/api/request/company/Employee-Diary HTTP/1.1
 
 ###
+GET http://localhost:3000/api/request/employee/49748069N HTTP/1.1
+
+###
 POST http://localhost:3000/api/request HTTP/1.1
 Content-Type: application/json
 
 {
     "employee": "49748069N",
-    "title": "Cuidado",
-    "content": "tengo frio"
+    "title": "Solicitud ascenso",
+    "content": "Quis sit ut eiusmod dolore ea est proident fugiat sit nulla id nulla aliquip ea. Adipisicing consectetur nisi labore sunt est. Sint non laborum sunt pariatur fugiat esse duis culpa eiusmod. Id velit magna ipsum amet in occaecat minim. Dolore deserunt cillum quis consequat sunt et elit aute duis cillum esse amet sunt irure.Elit Lorem exercitation cillum et occaecat velit nisi irure minim sint nulla nulla. Anim dolore dolor magna cillum enim cupidatat duis. Amet cillum occaecat ut consectetur ad pariatur fugiat laboris id pariatur incididunt mollit do dolor. Officia proident proident labore laboris adipisicing adipisicing sunt veniam pariatur nisi. Exercitation commodo in aliquip pariatur labore commodo nulla veniam irure velit quis. Exercitation Lorem ut quis nisi eiusmod velit."
 }
 
 ###
@@ -26,4 +29,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/request/647dabecace7a6bc45dc266c HTTP/1.1
+DELETE http://localhost:3000/api/request/6481a7f87c6372506ba84be2 HTTP/1.1

@@ -67,6 +67,10 @@ async function createSchedule(req, res)
     try
     {
         schedule = scheduleSchema(req.body);
+        schedule.realHours = 
+            schedule.hours.length == 1 
+                ? ['--:--', '--:--']  
+                : ['--:--', '--:--', '--:--', '--:--'];
     }
     catch(error)
     {
@@ -86,7 +90,11 @@ async function updateSchedule(req, res)
     const { body } = req;
 
     await scheduleService.updateOne(id, body)
-        .then((data) => send.response200(res, data))
+        .then((data) => {
+            scheduleService.getOne(data.id)
+                .then((data) => send.response200(res, data))
+                .catch((error) => send.response500(res,error))
+        })
         .catch((error) => send.response500(res, error));
 };
 

@@ -13,6 +13,10 @@ const scheduleSchema = mongoose.Schema({
         type: [String],
         required: true
     },
+    realHours: {
+        type: [String],
+        required: true
+    },
     hoursCount: {
         type: Number,
         required: true

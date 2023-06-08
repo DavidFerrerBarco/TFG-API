@@ -42,6 +42,14 @@ async function getRequestsFromCompany(req, res){
         .catch((error) => send.response500(res, error));
 };
 
+async function getRequestByEmployee(req, res){
+    const { employee } = req.params;
+
+    await requestService.getRequestByEmployee(employee)
+    .then((data) => send.response200(res, data))
+    .catch((error) => send.response500(res, error));;
+};
+
 async function createRequest(req, res)
 {
     let request
@@ -85,6 +93,7 @@ module.exports = {
     getRequests,
     getOneRequest,
     getRequestsFromCompany,
+    getRequestByEmployee,
     createRequest,
     updateRequest,
     deleteRequest

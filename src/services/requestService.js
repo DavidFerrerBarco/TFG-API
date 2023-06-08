@@ -16,6 +16,11 @@ async function getRequestsFromEmployeeList(listEmployees)
     return await requestSchema.find({employee: {$in : listEmployees}});
 };
 
+async function getRequestByEmployee(employee)
+{
+    return await requestSchema.find({employee: employee});
+};
+
 async function createOne(request)
 {
     return await request.save();
@@ -42,6 +47,7 @@ module.exports = {
     getAll,
     getOne,
     getRequestsFromEmployeeList,
+    getRequestByEmployee,
     createOne,
     updateOne,
     deleteOne,

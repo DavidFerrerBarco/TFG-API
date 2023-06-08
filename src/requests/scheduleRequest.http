@@ -25,18 +25,18 @@ Content-Type: application/json
 
 {
     "employee": "49748069N",
-    "day": "2023-05-15",
-    "hours": ["08:00-12:00"],
+    "day": "2023-05-16",
+    "hours": ["08:00-12:00", "16:00-20:00"],
     "hoursCount": 8
 }
 
 ###
-PUT http://localhost:3000/api/schedule/643eac19ffa0bb02fe183993 HTTP/1.1
+PUT http://localhost:3000/api/schedule/6480cef0cb404af377f68504 HTTP/1.1
 Content-Type: application/json
 
 {
-    "day": "19/04/2023"
+    "day": "2023-06-11"
 }
 
 ###
-DELETE http://localhost:3000/api/schedule/64611e96c696ec877c9f23c5 HTTP/1.1
+DELETE http://localhost:3000/api/schedule/6480cb614b18ab9ef0401521 HTTP/1.1
